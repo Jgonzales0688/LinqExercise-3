@@ -57,13 +57,14 @@ namespace LinqExercise
             // List of employees ****Do not remove this****
             var employees = CreateEmployees();
             Console.WriteLine("********************************");
+            
             //TODO: Print all the employees' FullName properties to the console only if their FirstName starts with a C OR an S and order this in ascending order by FirstName.
             employees.FindAll(name => name.FirstName.ToLower()[0] == 'c' || name.FirstName.ToLower()[0] == 's')
                 .ToList().ForEach(name => Console.WriteLine(name.FullName));
+            
             Console.WriteLine("********************************");
+           
             //TODO: Print all the employees' FullName and Age who are over the age 26 to the console and order this by Age first and then by FirstName in the same result.
-
-
             var nameList = employees.Where(name => name.Age > 26).OrderBy(age => age.Age).ThenBy(name => name.FirstName);
             nameList.ToList().ForEach(name => Console.WriteLine($"{name.FullName}, {name.Age}"));
             Console.WriteLine("********************************");
@@ -74,6 +75,7 @@ namespace LinqExercise
 
             Console.WriteLine($"Sum is {sum}, average is {avg}");
             Console.WriteLine("********************************");
+            
             //TODO: Add an employee to the end of the list without using employees.Add()
             employees.Append(new Employee("Gonzales", "Jessica", 0, 0)).ToList().ForEach(x => Console.WriteLine(x.FullName));
             Console.WriteLine("********************************");
